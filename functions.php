@@ -24,3 +24,17 @@ add_action('wp_enqueue_scripts', 'loadStylesAndScripts');
 register_nav_menus(array(
 		'main-nav' => 'Main Navigation'
 	));
+
+// register side bar
+
+register_sidebar( array(
+	'name' => 'main-sidebar',
+	'description' => 'This is the main sidebar',
+	'before_widget' => '<div class="span4">',
+	'after-widget' => '</div>',
+	'before_title' => '<h4>',
+	'after_title' => '</h4>'
+	));
+
+// add thumbnail feature
+add_theme_support( 'post_thumbnails' );

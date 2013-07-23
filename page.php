@@ -16,6 +16,7 @@
 			<?php endif; ?>
 		</div>
 		<div class="span4">
+			<?php get_sidebar(); ?>
 		</div>
 	</div>
 </div>

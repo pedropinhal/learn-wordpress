@@ -15,24 +15,24 @@
 			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 8025,
-				"line_ending": "Windows"
+				"buffer_size": 7632,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "footer.php",
 			"settings":
 			{
-				"buffer_size": 631,
-				"line_ending": "Windows"
+				"buffer_size": 939,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "functions.php",
 			"settings":
 			{
-				"buffer_size": 576,
-				"line_ending": "Windows"
+				"buffer_size": 616,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -47,8 +47,8 @@
 			"file": "header.php",
 			"settings":
 			{
-				"buffer_size": 455,
-				"line_ending": "Windows"
+				"buffer_size": 727,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -159,15 +159,15 @@
 					"file": "index.php",
 					"settings":
 					{
-						"buffer_size": 8025,
+						"buffer_size": 7632,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								146,
-								153
+								0,
+								0
 							]
 						],
 						"settings":
@@ -187,15 +187,15 @@
 					"file": "footer.php",
 					"settings":
 					{
-						"buffer_size": 631,
+						"buffer_size": 939,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								114,
-								114
+								0,
+								0
 							]
 						],
 						"settings":
@@ -215,15 +215,15 @@
 					"file": "functions.php",
 					"settings":
 					{
-						"buffer_size": 576,
+						"buffer_size": 616,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7,
-								7
+								0,
+								0
 							]
 						],
 						"settings":
@@ -269,15 +269,15 @@
 					"file": "header.php",
 					"settings":
 					{
-						"buffer_size": 455,
+						"buffer_size": 727,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								439,
-								439
+								0,
+								0
 							]
 						],
 						"settings":
