@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>easydevtuts</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php wp_head();?>
-</head>
-<body>
-    <div id="wrap">
-        <!-- header: main-nav -->
+
         <?php get_header(); ?>
         <!-- end of header -->
 
@@ -138,13 +129,4 @@
         </div>
         <!-- end of main home content -->
 
-        <!-- this is where the footer file will begin -->
-        <div id="push"></div>
-    </div>
-    <footer>
-    	<?php get_footer(); ?>
-    </footer>
-
-    <?php wp_footer();?>
-</body>
-</html>
+        <?php get_footer(); ?>
