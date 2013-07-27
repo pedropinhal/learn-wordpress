@@ -1,6 +1,6 @@
 <?php 
     /*
-     Template Name: Blog
+     Template Name: Home
      */
  ?>
 
@@ -14,8 +14,8 @@
         <div class="row">
             <div class="span12">
                 <div class="hero-unit well">
-                    <h1>Easy WordPress Development BLOG</h1>
-                    <p>This template was developed for a tutorial series about WordPress development. You can find the series on <a href="http://www.youtube.com/easydevtuts" target="_blank">YouTube</a></p>
+                    <h1><?php the_field("big_page_title", 28) ?></h1>
+                    <p>This template was developed for a HOME tutorial series about WordPress development. You can find the series on <a href="http://www.youtube.com/easydevtuts" target="_blank">YouTube</a></p>
                     <p><a href="http://www.easydevtuts.com" target="_blank" class="btn btn-inverse btn-large">Learn more »</a></p>
                 </div>
             </div>
@@ -63,34 +63,30 @@
             </div>
 
             <div class="span8">
+
                 <div id="slider" class="carousel slide hidden-phone">
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="http://placehold.it/800x400&text=easy" alt="#">
+
+                        <?php $slides = new WP_Query('post_type=slide&posts_per_page=-1&offset=1'); 
+                        
+                        while ($slides->have_posts()) : $slides->the_post(); 
+                            ?>
+
+                        <div class="item <?php if ($slides->current_post == 0) { echo 'active'; } ?>">
+                            <img src="<?php the_field("slide_image"); ?>" alt="<?php the_title(); ?>">
                             <div class="carousel-caption  hidden-phone">
-                                <h4>First Slide Title</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <h4><?php the_title(); ?></h4>
+                                <p><?php the_field("slide_caption"); ?></p>
                             </div>
                         </div>
-                        <div class="item">
-                            <img src="http://placehold.it/800x400&text=dev" alt="#">
-                            <div class="carousel-caption hidden-phone">
-                                <h4>Second Slide Title</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="http://placehold.it/800x400&text=tuts" alt="#">
-                            <div class="carousel-caption hidden-phone">
-                                <h4>Third Slide Title</h4>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            </div>
-                        </div>
+                    <?php endwhile; ?>
                     </div>
                     <ol class="carousel-indicators">
-                        <li data-target="#slider" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider" data-slide-to="1"></li>
-                        <li data-target="#slider" data-slide-to="2"></li>
+                        
+                        <?php for ($i=0; $i < $slides->post_count; $i++) { ?> 
+                            <li data-target="#slider" data-slide-to="<? echo $i; ?>" class="<? if ($i == 0) { echo 'active';} ?>"></li>
+                        <? } ?>
+                       
                     </ol>
                 </div>
             </div>
@@ -99,7 +95,11 @@
         <div class="row">
             <div class="span12">
                 <ul class="thumbnails">
-                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                    <?php if ( have_posts() ) : 
+
+                        query_posts( "category_name=Uncategorized&posts_per_page=3" );
+
+                    while ( have_posts() ) : the_post(); ?>
                        <!-- post -->
                             <li class="span4">
                                 <div class="thumbnail">

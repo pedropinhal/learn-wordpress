@@ -9,7 +9,8 @@
 
 <div id="respond">
 
-<h4><?php comment_form_title(); ?></h4>
+<h4>Comments: <?php comments_number( $zero = 'Nothing yet', $one = '(1)', $more = '(%)');?>
+</h4>
 
 <?php cancel_comment_reply_link(); ?>
 
@@ -23,32 +24,31 @@
 
 <?php if ( $user_ID ) : ?>
 
-<p>Logged in as <a href="<?php echo get_option( 'siteurl' ); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Log out of this account">Log out &raquo;</a></p>
+<p>Logged in as <a href="<?php echo get_option( 'siteurl' ); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. 
+	<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Log out of this account" class="muted">Log out &raquo;</a></p>
 
 <?php else : ?>
 
-<p>
-<input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
 <label for="author">Name <?php if ( $req ) echo "( required )"; ?></label>
-</p>
+<input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" class="input-block-level" 
+<?php if ($req) echo "aria-required='true'"; ?> />
 
-<p>
-<input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+
 <label for="email">Email ( <?php if ( $req ) echo "required, "; ?>never shared )</label>
-</p>
+<input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" class="input-block-level" <?php if ($req) echo "aria-required='true'"; ?> />
 
-<p>
-<input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="22" tabindex="3" />
 <label for="url">Website</label>
-</p>
+<input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" class="input-block-level" />
+
 
 <?php endif; ?>
 
-<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+<label>Comment</label>
+<textarea name="comment" id="comment" class="input-block-level"></textarea>
 
 <p>Some HTML is ok: <pre><?php echo allowed_tags(); ?></pre></p>
 
-<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" /></p>
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" class="btn"/></p>
 <?php do_action( 'comment_form', $post->ID ); comment_id_fields(); ?>
 
 </form>
@@ -57,3 +57,7 @@
 </div>
 
 <?php endif; // If comments are open: delete this and the sky will fall on your head ?>
+<?php wp_list_comments(array(
+	'type' => 'comment',
+	'callback' => 'comments_feed_template_callback'
+	)); ?>

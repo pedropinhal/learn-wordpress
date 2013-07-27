@@ -10,12 +10,12 @@
                     &copy; 2013 <em>nobody</em>
                 </div>
                 <div class="span4">
-                    <ul class="nav nav-pills">
-                        <li><a href="#">home</a></li>
-                        <li><a href="#">blog</a></li>
-                        <li><a href="#">contact</a></li>
-                        <li><a href="#">about</a></li>
-                    </ul>
+
+                        <?php wp_nav_menu( array(
+                        'theme_location' => 'footer-nav', 
+                        'container_class' => false, 
+                        'menu_class'      => 'nav nav-pills', 
+                    ) ) ?>
                 </div>
                 <div class="span4">
                     <i class="icon-hand-right icon-white"></i><em>I guess some social media links could go here.</em> <i class="icon-hand-left icon-white"></i>
